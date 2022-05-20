@@ -1,0 +1,31 @@
+<div *ngIf="mussic">
+  <div [ngSwitch]="d">
+  <div id="inputModal"  *ngSwitchCase="1">
+    <div class="modal-content">
+      <input class="modal-input" [(ngModel)]="mussic.song" id="input-title" type="text" placeholder="Song Title" />
+      <input class="modal-input"  [(ngModel)]="mussic.singer" id="input-name" type="text"  placeholder="Artist Name" />
+      <input class="modal-input"  id="input-photo" type="text" placeholder="Image URL" />
+      <input class="modal-input" id="input-btn" type="submit" value="Save"  (click)="save()" name="d"/>
+      <input class="modal-input" id="input-btn" type="submit" value="Close"  (click)="onSelect()" />
+      <input class="modal-input" type="hidden" id="input-hidden" />
+    </div>
+  </div>
+  <div *ngSwitchCase="0"> <div></div></div>
+</div>
+</div>
+
+<div *ngIf="add_mussic">
+  <div [ngSwitch]="d">
+    <div id="inputModal"  *ngSwitchCase="2">
+      <div class="modal-content">
+        <input class="modal-input" #name_bh id="input-title" type="text" placeholder="Song Title" />
+        <input class="modal-input"  #name_cs id="input-name" type="text"  placeholder="Artist Name" />
+        <input class="modal-input"  id="input-photo" type="text" placeholder="Image URL" />
+        <input class="modal-input" id="input-btn" type="submit" value="Add"  (click)="add_mussicc(name_cs.value, name_bh.value)" />
+        <input class="modal-input" id="input-btn" type="submit" value="Close"  (click)="onSelect()" />
+        <input class="modal-input" type="hidden" id="input-hidden" />
+      </div>
+    </div>
+    <div *ngSwitchCase="0"> <div></div></div>
+  </div>
+</div>

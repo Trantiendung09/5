@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<!-- <body>
+</body> -->
+<body style="width: 100%; margin: 0">
+  <div class="grid-container">
+    <div class="grid-item" id="left">
+      <span class="header-wrapper"> </span>
+      <span class="subheader-wrapper"> </span>
+    </div>
+
+    <div class="grid-item" id="center">
+      <app-header></app-header>
+      <div class="main-section">
+        <div class="chart">
+          <script>
+            //Switch images after every 2 seconds
+            var imageSources = [
+              "https://steamuserimages-a.akamaihd.net/ugc/794259134300688511/962269E9DB6EAC0B3B8F452B5EDE97DB1752629B/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false",
+              "https://image.winudf.com/v2/image/Y29tLmFyY2hiZWFycy5ic19zY3JlZW5fMF8xNTIyODIxNDY4XzA0Nw/screen-0.jpg?h=355&fakeurl=1&type=.jpg",
+              "https://wallpaperaccess.com/full/2650579.jpg",
+              "https://wallpaperaccess.com/full/2045131.jpg",
+              "https://steamuserimages-a.akamaihd.net/ugc/831387554228323417/4727A7FB6E03C65EDF340E5B55206FD1E4E80338/",
+              "https://cdn.cloudflare.steamstatic.com/steam/apps/215830/ss_aa6d56c0744db381f5f0645c31b24f617e600e1e.1920x1080.jpg?t=1649237452",
+            ];
+            var imageDetails = [
+              "SoulWorkers",
+              "Black Survival",
+              "Blade & Soul",
+              "Black Desert",
+              "Elsword",
+              "Closers",
+            ];
+            var index = 0;
+            setInterval(function () {
+              if (index === imageSources.length) {
+                index = 0;
+              }
+              document.getElementById("image-slider").src =
+                imageSources[index];
+              document.getElementById("name-slider").innerHTML =
+                imageDetails[index];
+              index++;
+            }, 4000);
+          </script>
+          <img
+            id="image-slider"
+            src="https://cdn.cloudflare.steamstatic.com/steam/apps/215830/ss_aa6d56c0744db381f5f0645c31b24f617e600e1e.1920x1080.jpg?t=1649237452"
+          />
+          <!--Title-->
+          <!-- <div id="frontTitle-slider">></div> -->
+          <a href="#" id="name-slider">CLOSERS</a>
+        </div>
+        <router-outlet></router-outlet>
+        </div>
+      <div class="side-section">
+        <div class="right-board">
+          <a id="newbtn" class="add-new" href="#">
+            <div class="delete-btn">
+              <img
+                src="https://img.icons8.com/dotty/80/000000/add-to-inbox.png"
+              />
+            </div>
+            <div class="description">
+              <p class="title">Mô tả tính năng mới</p>
+              <p class="desc">
+                Vì được mentor yêu cầu, chúng tôi hân hạnh mang đến cho bạn
+                một chức năng mới không khác gì chức năng cũ
+              </p>
+            </div>
+          </a>
+          <div class="modal" id="inputModal">
+            <!-- Modal content -->
+            <div class="modal-content">
+              <input
+                class="modal-input"
+                id="input-title"
+                type="text"
+                placeholder="Song Title"
+              />
+              <input
+                class="modal-input"
+                id="input-name"
+                type="text"
+                placeholder="Artist Name"
+              />
+              <input
+                class="modal-input"
+                id="input-photo"
+                type="text"
+                placeholder="Image URL"
+              />
+              <input
+                class="modal-input"
+                id="input-btn"
+                type="submit"
+                value="Submit"
+              />
+              <input class="modal-input" type="hidden" id="input-hidden" />
+            </div>
+          </div>
+
+          <div class="today-theme">
+            <label> CHỦ ĐỀ HOT </label>
+            <a class="theme-photo" href="#">
+              <img
+                src="https://photo-zmp3.zmdcdn.me/covers/d/0/d0f7e500d9a338062095f7f66ed669ff_1516330401.jpg"
+              />
+            </a>
+            <a class="more-theme" href="#"> Xem thêm Chủ Đề khác ></a>
+          </div>
+        </div>
+        <div class="chart-song">
+          <h2>
+            <a class="chart-detail" href="#">
+              #ZINGCHART TUẦN - BÀI HÁT
+              <img class="right-arrow" src="right-arrow.png" />
+            </a>
+            <a href="#" class="play-btn">
+              <img
+                src="https://img.icons8.com/ios-filled/50/000000/circled-play.png"
+              />
+            </a>
+          </h2>
+          <div class="chart-content">
+            <div class="chart-header">
+              <button
+                class="chart-header-content"
+                onclick="switchList('vn')"
+                id="vn-header"
+              >
+                Việt Nam
+              </button>
+              <button
+                class="chart-header-content"
+                onclick="switchList('usuk')"
+                id="usuk-header"
+              >
+                US-UK
+              </button>
+              <button
+                class="chart-header-content"
+                onclick="switchList('kpop')"
+                id="kpop-header"
+              >
+                K-Pop
+              </button>
+            </div>
+            <div class="chart-image">
+              <img
+                class="chart-photo"
+                src="https://photo-zmp3.zmdcdn.me/default.jpg"
+                alt="error"
+              />
+              <div class="chart-list" id="vn">
+                <ul class="flex-list">
+                  <li style="border: none">
+                    <div class="rank" style="color: #fff">01</div>
+                    <div class="song-desc">
+                      <a class="song-name" style="color: #fff"
+                        >Đám Cưới Nha?</a
+                      >
+                      <a class="artist-name" style="color: #fff"
+                        >Hồng Thanh</a
+                      >
+                    </div>
+                    <span class="toolbar">
+                      <a class="edit-btn" href="#"
+                        ><img
+                          src="https://img.icons8.com/pastel-glyph/64/000000/download--v1.png"
+                      /></a>
+                      <a class="delete-btn" href="#"
+                        ><img
+                          src="https://img.icons8.com/ios-glyphs/30/000000/plus-math.png"
+                      /></a>
+                      <a class="share-btn" href="#"
+                        ><img
+                          src="https://img.icons8.com/ios-glyphs/30/000000/share--v1.png"
+                      /></a>
+                    </span>
+                  </li>
+                  <li>
+                    <div class="rank">02</div>
+                    <div class="song-desc">
+                      <a class="song-name">May Mắn Khi Có Em</a>
+                      <a class="artist-name">Đạt Villa</a>
+                    </div>
+                    <span class="toolbar">
+                      <a class="edit-btn" href="#"
+                        ><img
+                          src="https://img.icons8.com/pastel-glyph/64/000000/download--v1.png"
+                      /></a>
+                      <a class="delete-btn" href="#"
+                        ><img
+                          src="https://img.icons8.com/ios-glyphs/30/000000/plus-math.png"
+                      /></a>
+                      <a class="share-btn" href="#"
+                        ><img
+                          src="https://img.icons8.com/ios-glyphs/30/000000/share--v1.png"
+                      /></a>
+                    </span>
+                  </li>
+                  <li>
+                    <div class="rank">03</div>
+                    <div class="song-desc">
+                      <a class="song-name">Sau Lưng Anh Có Ai Kìa</a>
+                      <a class="artist-name">Thiều Bảo Trâm</a>
+                    </div>
+                    <span class="toolbar">
+                      <a class="edit-btn" href="#"
+                        ><img
+                          src="https://img.icons8.com/pastel-glyph/64/000000/download--v1.png"
+                      /></a>
+                      <a class="delete-btn" href="#"
+                        ><img
+                          src="https://img.icons8.com/ios-glyphs/30/000000/plus-math.png"
+                      /></a>
+                      <a class="share-btn" href="#"
+                        ><img
+                          src="https://img.icons8.com/ios-glyphs/30/000000/share--v1.png"
+                      /></a>
+                    </span>
+                  </li>
+                  <li>
+                    <div class="rank">04</div>
+                    <div class="song-desc">
+                      <a class="song-name">Người Tôi Yêu Chẳng Hề Yêu Tôi</a>
+                      <a class="artist-name">Chi Dân</a>
+                    </div>
+                    <span class="toolbar">
+                      <a class="edit-btn" href="#"
+                        ><img
+                          src="https://img.icons8.com/pastel-glyph/64/000000/download--v1.png"
+                      /></a>
+                      <a class="delete-btn" href="#"
+                        ><img
+                          src="https://img.icons8.com/ios-glyphs/30/000000/plus-math.png"
+                      /></a>
+                      <a class="share-btn" href="#"
+                        ><img
+                          src="https://img.icons8.com/ios-glyphs/30/000000/share--v1.png"
+                      /></a>
+                    </span>
+                  </li>
+                  <li>
+                    <div class="rank">05</div>
+                    <div class="song-desc">
+                      <a class="song-name">Muốn Em Là</a>
+                      <a class="artist-name">Keyo</a>
+                    </div>
+                    <span class="toolbar">
+                      <a class="edit-btn" href="#"
+                        ><img
+                          src="https://img.icons8.com/pastel-glyph/64/000000/download--v1.png"
+                      /></a>
+                      <a class="delete-btn" href="#"
+                        ><img
+                          src="https://img.icons8.com/ios-glyphs/30/000000/plus-math.png"
+                      /></a>
+                      <a class="share-btn" href="#"
+                        ><img
+                          src="https://img.icons8.com/ios-glyphs/30/000000/share--v1.png"
+                      /></a>
+                    </span>
+                  </li>
+                  <li>
+                    <div class="rank">06</div>
+                    <div class="song-desc">
+                      <a class="song-name">Chạy Về Nơi Phía Anh</a>
+                      <a class="artist-name">Khắc Việt</a>
+                    </div>
+                    <span class="toolbar">
+                      <a class="edit-btn" href="#"
+                        ><img
+                          src="https://img.icons8.com/pastel-glyph/64/000000/download--v1.png"
+                      /></a>
+                      <a class="delete-btn" href="#"
+                        ><img
+                          src="https://img.icons8.com/ios-glyphs/30/000000/plus-math.png"
+                      /></a>
+                      <a class="share-btn" href="#"
+                        ><img
+                          src="https://img.icons8.com/ios-glyphs/30/000000/share--v1.png"
+                      /></a>
+                    </span>
+                  </li>
+                  <li>
+                    <div class="rank">07</div>
+                    <div class="song-desc">
+                      <a class="song-name">Buồn Không Thể Buông</a>
+                      <a class="artist-name">Nhiều Nghệ Sĩ</a>
+                    </div>
+                    <span class="toolbar">
+                      <a class="edit-btn" href="#"
+                        ><img
+                          src="https://img.icons8.com/pastel-glyph/64/000000/download--v1.png"
+                      /></a>
+                      <a class="delete-btn" href="#"
+                        ><img
+                          src="https://img.icons8.com/ios-glyphs/30/000000/plus-math.png"
+                      /></a>
+                      <a class="share-btn" href="#"
+                        ><img
+                          src="https://img.icons8.com/ios-glyphs/30/000000/share--v1.png"
+                      /></a>
+                    </span>
+                  </li>
+                  <li>
+                    <div class="rank">08</div>
+                    <div class="song-desc">
+                      <a class="song-name">Chạy Về Khóc Với Anh</a>
+                      <a class="artist-name">ERik</a>
+                    </div>
+                    <span class="toolbar">
+                      <a class="edit-btn" href="#"
+                        ><img
+                          src="https://img.icons8.com/pastel-glyph/64/000000/download--v1.png"
+                      /></a>
+                      <a class="delete-btn" href="#"
+                        ><img
+                          src="https://img.icons8.com/ios-glyphs/30/000000/plus-math.png"
+                      /></a>
+                      <a class="share-btn" href="#"
+                        ><img
+                          src="https://img.icons8.com/ios-glyphs/30/000000/share--v1.png"
+                      /></a>
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              <div class="chart-list" id="usuk">
+                <ul class="flex-list">
+                  <li style="border: none; filter: brightness(150%)">
+                    <div class="rank" style="color: white">01</div>
+                    <div class="song-desc">
+                      <a class="song-name" style="color: white">Peaches</a>
+                      <a class="artist-name" style="color: white"
+                        >Justin Bieber</a
+                      >
+                    </div>
+                  </li>
+                  <li>
+                    <div class="rank">02</div>
+                    <div class="song-desc">
+                      <a class="song-name">Heartbreak Anniversary</a>
+                      <a class="artist-name">Giveon</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="rank">03</div>
+                    <div class="song-desc">
+                      <a class="song-name">Leave The Door Open</a>
+                      <a class="artist-name">Bruno Mars</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="rank">04</div>
+                    <div class="song-desc">
+                      <a class="song-name" href="#">Enemy (Arcane LoLs)</a>
+                      <a class="artist-name" href="#">Imagine Dragon</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="rank">05</div>
+                    <div class="song-desc">
+                      <a class="song-name">Stay</a>
+                      <a class="artist-name">The Kid LAROI</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="rank">06</div>
+                    <div class="song-desc">
+                      <a class="song-name">Woman</a>
+                      <a class="artist-name">Doja Cat</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="rank">07</div>
+                    <div class="song-desc">
+                      <a class="song-name">Ghost</a>
+                      <a class="artist-name">Justin Bieber</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="rank">08</div>
+                    <div class="song-desc">
+                      <a class="song-name">THATS WHAT I WANT</a>
+                      <a class="artist-name">Lil Nas X</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="chart-list" id="kpop">
+                <ul class="flex-list">
+                  <li style="border: none">
+                    <div class="rank" style="color: white">01</div>
+                    <div class="song-desc">
+                      <a class="song-name" style="color: white">Still Life</a>
+                      <a class="artist-name" style="color: white">BIGBANG</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="rank">02</div>
+                    <div class="song-desc">
+                      <a class="song-name">LOVEDIVE</a>
+                      <a class="artist-name">IVE</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="rank">03</div>
+                    <div class="song-desc">
+                      <a class="song-name">Feel My Rythm</a>
+                      <a class="artist-name">Red Velvet</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="rank">04</div>
+                    <div class="song-desc">
+                      <a class="song-name">Love, Maybe</a>
+                      <a class="artist-name">MeloMance</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="rank">05</div>
+                    <div class="song-desc">
+                      <a class="song-name">GANADARA(feat. IU)</a>
+                      <a class="artist-name">Keyo</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="rank">06</div>
+                    <div class="song-desc">
+                      <a class="song-name">INVU</a>
+                      <a class="artist-name">TAEYEON</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="rank">07</div>
+                    <div class="song-desc">
+                      <a class="song-name">LOVE me</a>
+                      <a class="artist-name">BE'O</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="rank">08</div>
+                    <div class="song-desc">
+                      <a class="song-name">ELEVEN</a>
+                      <a class="artist-name">IVE</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-item" id="right">
+      <span class="header-wrapper"> </span>
+      <span class="subheader-wrapper"> </span>
+    </div>
+  </div>
+</body>
+</html>

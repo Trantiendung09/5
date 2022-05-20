@@ -1,0 +1,40 @@
+<div *ngIf="mussic">
+    <div class="section-body">
+      <ul id="main-list">
+        <li  >
+            <!-- <a routerLink="/detail/{{hero.id}}">
+                <span class="badge">{{hero.id}}</span> {{hero.name}}
+              </a> -->
+          <label class="rank main-rank" id="r1"> {{mussic.id}} </label>
+          <label class="rank-status"> - </label>
+          <img
+            class="song-photo"
+            src="https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_jpeg/cover/5/b/8/b/5b8b7cd3d1434afa3b2b9854efdc8756.jpg?fs=MTY1MDg1NjU1MTExOHx3ZWJWNHw"
+          />
+          <div class="song-description">
+            <a routerLink="/detail/{{mussic.id}}" class="song-name"> {{mussic.song}}</a>
+            <a routerLink="/detail/{{mussic.id}}" class="artist-name"> {{mussic.singer}}</a>
+          </div>
+          <span class="toolbar">
+            <button class="edit-btn" onclick="edit_modal('l1')">
+              <img
+                src="https://img.icons8.com/ios-glyphs/30/000000/edit--v1.png"
+              />
+            </button>
+            <button class="delete-btn" onclick="deleteDiv('l1')">
+              <img
+                src="https://img.icons8.com/material-outlined/24/000000/filled-trash.png"
+              />
+            </button>
+            <button class="share-btn">
+              <img
+                src="https://img.icons8.com/ios-glyphs/30/000000/share--v1.png"
+              />
+            </button>
+          </span>
+        </li>
+      
+      </ul>
+    </div>
+    <button type="button" (click)="goBack()">go back</button>
+  </div>
